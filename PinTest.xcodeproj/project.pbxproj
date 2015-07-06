@@ -15,7 +15,7 @@
 		B14D581A1B4A641A00D32325 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B14D58191B4A641A00D32325 /* Images.xcassets */; };
 		B14D581D1B4A641A00D32325 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D581B1B4A641A00D32325 /* LaunchScreen.xib */; };
 		B14D58291B4A641B00D32325 /* PinTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D58281B4A641B00D32325 /* PinTestTests.m */; };
-		B14D58341B4A68C800D32325 /* PTAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D58331B4A68C800D32325 /* PTAnnotation.m */; };
+		B1E165321B4B1DF900561450 /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E165311B4B1DF900561450 /* Annotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +43,8 @@
 		B14D58221B4A641A00D32325 /* PinTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D58271B4A641B00D32325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B14D58281B4A641B00D32325 /* PinTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PinTestTests.m; sourceTree = "<group>"; };
-		B14D58321B4A68C800D32325 /* PTAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTAnnotation.h; sourceTree = "<group>"; };
-		B14D58331B4A68C800D32325 /* PTAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTAnnotation.m; sourceTree = "<group>"; };
+		B1E165301B4B1DF900561450 /* Annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotation.h; sourceTree = "<group>"; };
+		B1E165311B4B1DF900561450 /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Annotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,8 @@
 				B14D580E1B4A641A00D32325 /* AppDelegate.m */,
 				B14D58131B4A641A00D32325 /* ViewController.h */,
 				B14D58141B4A641A00D32325 /* ViewController.m */,
-				B14D58321B4A68C800D32325 /* PTAnnotation.h */,
-				B14D58331B4A68C800D32325 /* PTAnnotation.m */,
+				B1E165301B4B1DF900561450 /* Annotation.h */,
+				B1E165311B4B1DF900561450 /* Annotation.m */,
 				B14D58161B4A641A00D32325 /* Main.storyboard */,
 				B14D58191B4A641A00D32325 /* Images.xcassets */,
 				B14D581B1B4A641A00D32325 /* LaunchScreen.xib */,
@@ -176,6 +176,7 @@
 				TargetAttributes = {
 					B14D58051B4A641A00D32325 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = CP435QSPEV;
 					};
 					B14D58211B4A641A00D32325 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -227,8 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E165321B4B1DF900561450 /* Annotation.m in Sources */,
 				B14D580F1B4A641A00D32325 /* AppDelegate.m in Sources */,
-				B14D58341B4A68C800D32325 /* PTAnnotation.m in Sources */,
 				B14D58121B4A641A00D32325 /* PinTest.xcdatamodeld in Sources */,
 				B14D58151B4A641A00D32325 /* ViewController.m in Sources */,
 				B14D580C1B4A641A00D32325 /* main.m in Sources */,
@@ -357,9 +358,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PinTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -367,9 +371,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PinTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -426,6 +433,7 @@
 				B14D582E1B4A641B00D32325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B14D582F1B4A641B00D32325 /* Build configuration list for PBXNativeTarget "PinTestTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +442,7 @@
 				B14D58311B4A641B00D32325 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
