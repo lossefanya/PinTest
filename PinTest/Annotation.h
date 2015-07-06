@@ -15,8 +15,11 @@
 
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * subtitle;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSDate * date;
 
 + (Annotation *)annotationWithCoordinate:(CLLocationCoordinate2D)coordinate;
 + (NSArray *)readData;

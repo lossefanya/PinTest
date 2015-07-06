@@ -67,6 +67,12 @@
 
 - (void)tap:(UITapGestureRecognizer *)sender {
 	CGPoint point = [sender locationInView:self.mapView];
+
+	UIView *view = [self.mapView hitTest:point withEvent:nil];
+	if ([view isKindOfClass:[MKAnnotationView class]]) {
+		return;
+	}
+
 	CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.view];
 	Annotation *annotation = [Annotation annotationWithCoordinate:coordinate];
 	[self.mapView addAnnotation:annotation];
@@ -89,11 +95,10 @@
 	}
 	
 	annotationView.annotation = annotation;
+	annotationView.canShowCallout = YES;
 	annotationView.animatesDrop = YES;
 	
 	return annotationView;
 }
-
-
 
 @end

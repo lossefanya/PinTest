@@ -12,8 +12,20 @@
 
 @implementation Annotation
 
-@synthesize coordinate, title, subtitle;
-@dynamic latitude, longitude;
+@synthesize coordinate;
+@dynamic latitude, longitude, date, title, subtitle;
+
++ (NSDateFormatter *)timeForm {
+	NSDateFormatter *dateForm = [NSDateFormatter new];
+	[dateForm setDateFormat:@"HH:mm:ss"];
+	return dateForm;
+}
+
++ (NSDateFormatter *)dateForm {
+	NSDateFormatter *dateForm = [NSDateFormatter new];
+	[dateForm setDateFormat:@"dd MMM yyyy"];
+	return dateForm;
+}
 
 + (Annotation *)annotationWithCoordinate:(CLLocationCoordinate2D)coordinate {
 	AppDelegate *app = [UIApplication sharedApplication].delegate;
@@ -22,6 +34,9 @@
 	annotation.latitude = @(coordinate.latitude);
 	annotation.longitude = @(coordinate.longitude);
 	annotation.coordinate = coordinate;
+	annotation.date = [NSDate date];
+	annotation.title = [[Annotation dateForm] stringFromDate:annotation.date];
+	annotation.subtitle = [[Annotation timeForm] stringFromDate:annotation.date];
 	
 	NSError *error;
 	if (![app.managedObjectContext save:&error]) {
@@ -39,6 +54,9 @@
 	[fetchRequest setEntity:entity];
 	NSError *error;
 	NSArray *fetchedObjects = [app.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+	if (error) {
+		NSLog(@"read error : %@", error);
+	}
 	
 	for (Annotation *info in fetchedObjects) {
 		double lat = [info.latitude doubleValue];
@@ -53,6 +71,10 @@
 	AppDelegate *app = [UIApplication sharedApplication].delegate;
 	
 	[app.managedObjectContext deleteObject:self];
+	NSError *error;
+	if (![app.managedObjectContext save:&error]) {
+		NSLog(@"delete error : %@", error);
+	}
 }
 
 @end
